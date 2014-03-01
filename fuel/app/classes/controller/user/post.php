@@ -68,6 +68,8 @@ class Controller_User_Post extends Controller_User {
         }
     }
     
+    
+    
     public function action_edit($id = null) {
         !isset($id) and Fuel\Core\Response::redirect('/user/post/draft');
         if($model = Model_Post::find($id) and $model->user_id === self::GetLogedInUser()->id) {
