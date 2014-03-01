@@ -12,6 +12,22 @@
  */
 class Model_User extends \Auth\Model\Auth_User {
 
+    protected static $_eav = array(
+        'metadata' => array(
+            'attribute' => 'key',
+            'value' => 'value',
+        ),
+    );
+    
+    protected static $_belongs_to = array(
+            'group' => array(
+                    'model_to' => 'Model\\Auth_Group',
+                    'key_from' => 'group_id',
+                    'key_to'   => 'id',
+                    'cascade_delete' => false,
+            ),
+    );
+    
     protected static $_has_many = array(
         'images' => array(
             'key_from' => 'id',
@@ -26,7 +42,28 @@ class Model_User extends \Auth\Model\Auth_User {
             'key_to' => 'user_id',
             'cascade_save' => true,
             'cascade_delete' => false,
-        )
+        ),
+        'messages' => array(
+            'key_from' => 'id',
+            'model_to' => 'Model_Message',
+            'key_to' => 'user_id',
+            'cascade_save' => true,
+            'cascade_delete' => false,
+        ),
+        
+        'metadata' => array(
+                'model_to' => 'Model\\Auth_Metadata',
+                'key_from' => 'id',
+                'key_to'   => 'parent_id',
+                'cascade_delete' => true,
+        ),
+        'userpermission' => array(
+                'model_to' => 'Model\\Auth_Userpermission',
+                'key_from' => 'id',
+                'key_to'   => 'user_id',
+                'cascade_delete' => false,
+        ),
+        
     );
     protected static $_many_many = array(
         'joined_events' => array(
@@ -66,5 +103,7 @@ class Model_User extends \Auth\Model\Auth_User {
             'mysql_timestamp' => false,
         ),
     );
+    
+    
 
 }

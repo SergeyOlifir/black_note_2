@@ -261,3 +261,21 @@ h1.logo {
     border: 0 none;
     max-width: 400px;
 }
+
+.vote_up {
+    margin: 0 3px;
+    margin-top: 3px;
+    display: block;
+    width: 15px;
+    height: 26px;
+    background: url(../img/icons_vote_karma_big.gif) no-repeat 0 0;
+}
+
+.vote_down {
+    margin: 0 3px;
+    margin-top: 3px;
+    display: block;
+    width: 15px;
+    height: 26px;
+    background: url(../img/icons_vote_karma_big.gif) no-repeat 0 0;
+}

@@ -7,6 +7,7 @@ class Model_Message extends \Orm\Model
 		'user_id',
 		'message',
 		'type',
+                'title',
 		'created_at',
 		'updated_at',
 	);

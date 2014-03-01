@@ -10,6 +10,7 @@ class Create_messages
 			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
 			'user_id' => array('constraint' => 11, 'type' => 'int'),
 			'message' => array('type' => 'text'),
+                        'title' => array('type' => 'text'),
 			'type' => array('constraint' => 50, 'type' => 'varchar'),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),

@@ -32,9 +32,9 @@
                                 </div>
                                 <div class="pull-right accaunt-controls">
                                     <ul>
-                                        <li><a href="/">Сообщения</a></li>
+                                        <li><a href="/user/messages">Сообщения</a></li>
                                         <li><a href="/user/post/create">Добавить пост</a></li>
-                                        <li><a href="/">Опубликованные посты</a></li>
+                                        <li><a href="/user/post/published">Опубликованные посты</a></li>
                                         <li><a href="/user/posts/draft">Черновики</a></li>
                                         <li><a href="/user/profile/edit">Настройки</a></li>
                                         <li><a href="/auth/logout">Выход</a></li>

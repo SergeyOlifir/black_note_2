@@ -24,6 +24,9 @@
              </ul>
          </div>
     <? endif; ?>
+    
+    <?= render('admin/post/popup', array('post' => $post), false); ?>
+    
     <div class="well">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -48,7 +51,7 @@
                     <? if($post->status < 3) : ?>
                         <?= Fuel\Core\Html::anchor('/admin/post/upruve/' . $post->id, 'Принять', array('class' => 'btn btn-default')); ?>
                     <? endif; ?>
-                    <?= Fuel\Core\Html::anchor('/admin/post/unupruve/' . $post->id, 'Не принять', array('class' => 'btn btn-danger')); ?>
+                    <?= Fuel\Core\Html::anchor('#', 'Не принять', array('class' => 'btn btn-danger', 'data-toggle' => "modal",  'data-target'=>"#messagemodal")); ?>
                 </div>
             </div>
         </div>

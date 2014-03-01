@@ -95,5 +95,9 @@ class Model_Filial extends \Orm\Model
         );
         
 	protected static $_table_name = 'filials';
+        
+        public static function GetTableName() {
+            return self::$_table_name;
+        }
 
 }
