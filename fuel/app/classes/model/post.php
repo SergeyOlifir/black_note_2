@@ -64,5 +64,11 @@ class Model_Post extends \Orm\Model
             '0' => 'Жалоба',
             '1' => 'Благодарность',
         );
+        
+        public static $post_status = array(
+            2 => 'Ожидает Модерации',
+            0 => 'Не принятая',
+            3 => 'Принятая'
+        );
 
 }
