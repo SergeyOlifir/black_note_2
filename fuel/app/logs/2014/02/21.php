@@ -1,0 +1,23 @@
+<?php defined('COREPATH') or exit('No direct script access allowed'); ?>
+
+ERROR - 2014-02-21 01:07:00 --> Error - The requested view could not be found: gwest/layout/profile/chengeAvatarPopUp in /Users/juise_man/project/black_note_v2/black_note/fuel/core/classes/view.php on line 388
+ERROR - 2014-02-21 16:42:16 --> Notice - Undefined offset: 1 in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/admin.php on line 25
+ERROR - 2014-02-21 16:42:58 --> Parsing Error - syntax error, unexpected '{' in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/admin.php on line 26
+ERROR - 2014-02-21 16:43:08 --> Runtime Recoverable error - Object of class Auth\Model\Auth_Group could not be converted to string in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/admin.php on line 29
+ERROR - 2014-02-21 16:46:46 --> Parsing Error - syntax error, unexpected 'else' (T_ELSE), expecting function (T_FUNCTION) in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/admin.php on line 33
+ERROR - 2014-02-21 16:47:00 --> Notice - Undefined offset: 1 in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/admin.php on line 24
+ERROR - 2014-02-21 16:48:03 --> Notice - Undefined offset: 1 in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/admin.php on line 24
+ERROR - 2014-02-21 17:25:42 --> Parsing Error - syntax error, unexpected 'isser' (T_STRING), expecting '(' in /Users/juise_man/project/black_note_v2/black_note/fuel/app/views/admin/user/index.php on line 1
+ERROR - 2014-02-21 17:25:43 --> Parsing Error - syntax error, unexpected 'isser' (T_STRING), expecting '(' in /Users/juise_man/project/black_note_v2/black_note/fuel/app/views/admin/user/index.php on line 1
+ERROR - 2014-02-21 20:17:10 --> Fatal Error - Call to undefined function get_validator() in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/admin/content.php on line 12
+ERROR - 2014-02-21 20:17:26 --> Fatal Error - Call to undefined method Fuel\Core\Validation::ran() in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/admin/content.php on line 13
+ERROR - 2014-02-21 21:14:01 --> Notice - date_default_timezone_set(): Timezone ID 'Europe/Kyev' is invalid in /Users/juise_man/project/black_note_v2/black_note/fuel/core/classes/date.php on line 327
+ERROR - 2014-02-21 21:37:24 --> Error - The requested view could not be found: /gwest/layout/content/article in /Users/juise_man/project/black_note_v2/black_note/fuel/core/classes/view.php on line 388
+ERROR - 2014-02-21 21:43:47 --> Fatal Error - Call to a member function count() on a non-object in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/gwest/content.php on line 17
+ERROR - 2014-02-21 21:44:23 --> Fatal Error - Call to a member function count() on a non-object in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/gwest/content.php on line 13
+ERROR - 2014-02-21 21:45:11 --> Fatal Error - Call to a member function count() on a non-object in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/gwest/content.php on line 10
+ERROR - 2014-02-21 21:45:42 --> Notice - Undefined variable: pagination in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/gwest/content.php on line 22
+ERROR - 2014-02-21 21:45:44 --> Notice - Undefined variable: pagination in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/gwest/content.php on line 22
+ERROR - 2014-02-21 21:49:20 --> 42000 - SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OFFSET 2' at line 1 with query: "SELECT `t0`.`id` AS `t0_c0`, `t0`.`title` AS `t0_c1`, `t0`.`body` AS `t0_c2`, `t0`.`user_id` AS `t0_c3`, `t0`.`type` AS `t0_c4`, `t0`.`preview` AS `t0_c5`, `t0`.`created_at` AS `t0_c6`, `t0`.`updated_at` AS `t0_c7` FROM `contents` AS `t0` WHERE `t0`.`type` = 0 OFFSET 2" in /Users/juise_man/project/black_note_v2/black_note/fuel/core/classes/database/pdo/connection.php on line 234
+ERROR - 2014-02-21 23:50:55 --> Fatal Error - Call to undefined method Fuel\Core\Route::get() in /Users/juise_man/project/black_note_v2/black_note/fuel/app/classes/controller/gwest/content.php on line 41
+ERROR - 2014-02-21 23:58:12 --> Error - The requested view could not be found: gwest/layout/content/index in /Users/juise_man/project/black_note_v2/black_note/fuel/core/classes/view.php on line 388
