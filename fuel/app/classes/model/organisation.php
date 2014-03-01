@@ -114,6 +114,14 @@ class Model_Organisation extends \Orm\Model
                 )
         );
         
+        public function unmoderated_filials() {
+            return Model_Filial::query()
+                    ->where('organisation_id', $this->id)
+                    ->where('status', 1)
+                    ->get();
+        }
+
+
         public static $organisation_sferes_types = array(
             '0' => array(
                 '0' => array(

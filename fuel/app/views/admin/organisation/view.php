@@ -1,3 +1,25 @@
+<? if(isset($organisation['status'])): ?>
+       <? if($organisation['status'] == 0): ?>
+            <div class="alert alert-danger">Организация не прошла модерацию</div>
+       <? endif; ?>
+       <? if($organisation['status'] == 1): ?>
+            <div class="alert alert-warning">Организация требует модерации</div>
+       <? endif; ?>
+       <? if($organisation['status'] == 2): ?>
+            <div class="alert alert-success">Организация одобрена</div>
+       <? endif; ?>
+       <? if(count($organisation->unmoderated_filials()) > 0): ?>
+            <div class="alert alert-danger">
+                <span>Есть не одобренные филиалы</span>
+                <ul>
+                    <? foreach($organisation->unmoderated_filials() as $filial): ?>
+                        <li><?= Fuel\Core\Html::anchor('/admin/filial/view/' . $filial->id, $filial->title) ?></li>
+                    <? endforeach;?>
+                </ul>
+            </div>
+       <? endif; ?>
+<? endif; ?>
+
 <div class="well">
     <?= \Fuel\Core\Form::open(); ?>
         <fieldset>

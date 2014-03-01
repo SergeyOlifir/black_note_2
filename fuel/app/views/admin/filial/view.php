@@ -1,5 +1,17 @@
+<? if(isset($organisation['status'])): ?>
+       <? if($organisation['status'] == 0): ?>
+            <div class="alert alert-danger">Филиал не прошлел модерацию</div>
+       <? endif; ?>
+       <? if($organisation['status'] == 1): ?>
+            <div class="alert alert-warning">Филиал требует модерации</div>
+       <? endif; ?>
+       <? if($organisation['status'] == 2): ?>
+            <div class="alert alert-success">Филиал одобрен</div>
+       <? endif; ?>
+<? endif; ?>
 <div class="well">
     <?= \Fuel\Core\Form::open(); ?>
+        <legend>Филиал организации <?= Fuel\Core\Html::anchor('/admin/organisation/view/' . $organisation->organisation->id, $organisation->organisation->title); ?></legend>
         <fieldset>
             <div class="form-group">
                 <label>Месторасположение</label>

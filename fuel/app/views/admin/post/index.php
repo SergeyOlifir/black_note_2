@@ -17,7 +17,7 @@
             </thead>
             <tbody>
                 <? foreach($organisations as $organisation): ?>
-                    <tr <?= ($organisation->status == 1) ? 'class="warning"' : ''; ?>>
+                    <tr <?= ($organisation->status == 2) ? 'class="warning"' : ''; ?>>
                         <td><?= $organisation->id; ?></td>
                         <td><?= $organisation->title; ?></td>
                         <td><?= Model_Post::$post_status[$organisation->status]; ?></td>

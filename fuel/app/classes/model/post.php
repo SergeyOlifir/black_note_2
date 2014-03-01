@@ -46,6 +46,14 @@ class Model_Post extends \Orm\Model
                 'cascade_save' => true,
                 'cascade_delete' => false,
             ),
+            
+            'filial' => array(
+                'key_from' => 'filial_id',
+                'model_to' => 'Model_Filial',
+                'key_to' => 'id',
+                'cascade_save' => true,
+                'cascade_delete' => false,
+            ),
         );
 
 	protected static $_observers = array(
