@@ -34,10 +34,54 @@ var SearchOrganisationObject = {
             
             success: function(e) {
                 //console.log(e);
+                var oldValue = $('select[name="organisation_id"]').val();
                 $('select[name="organisation_id"]').html('');
                 for(var i in e) {
                     $('select[name="organisation_id"]').append('<option value="' + e[i].id + '">' + e[i].title + '</option>');
                 }
+                var hasOldValue = $('select[name="organisation_id"]').find('option[value="' + oldValue + '"]').length > 0;
+                if (!hasOldValue) {
+                    $('select[name="organisation_id"]').val(null).trigger('change');
+                } else {
+                    $('select[name="organisation_id"]').val(oldValue);
+                }
+            }
+        })
+    }
+};
+
+var SearchFilialObject = {
+    fields: {
+        organisation_id: '',
+        country_id: '',
+        region_id: '',
+        sity_id: '',
+    },
+    
+    Set: function(key, value) {
+        if(this.fields[key] !== value) {
+            this.fields[key] = value;
+            this.SendToFilial();
+        }
+    },
+    
+    SendToFilial: function() {
+        var self = this;
+        $.ajax('/user/filial/search.json', {
+            type: 'POST',
+            data: self.fields,
+            error: function(e) {
+                console.log(e);
+            },
+            
+            success: function(e) {
+                //console.log(e);
+                
+                $('select[name="filial_id"]').html('');
+                for(var i in e) {
+                    $('select[name="filial_id"]').append('<option value="' + e[i].id + '">' + e[i].title + '</option>');
+                }
+                $('select[name="filial_id"]').val(null).trigger('change');
             }
         })
     }
@@ -49,21 +93,30 @@ $.prototype.LocationControl = function() {
         SearchOrganisationObject.Set($(this).attr('name'), $(this).val());
         console.log(SearchOrganisationObject);
     });*/
+    //debugger;
+    
     if(!$(this).attr('action')) return this;
-    if($(this).attr('param') === undefined) return this;
+    if($(this).attr('param') === undefined) {
+        $(self).val(null);
+        $(self).attr('val', '');
+        $(self).html('');
+        return this;
+    }
     $.ajax($(this).attr('action') + $(this).attr('param') + '.json', {
         type: 'get',
         error: function(e) {
             //console.log(e);
         },
         success: function(e) {
+            //debugger;
             $(self).html('');
             for(var i in e) {
                 var opt = e[i];
                 $(self).append('<option value="' + opt.id + '">' + opt.title + '</option>');
             }
             if($(self).attr('val') === '') {
-                $(self).val(0);
+                $(self).val(null);
+                $(self).val($(self).attr('val')).trigger('change');
             } else {
                 $(self).val($(self).attr('val')).trigger('change');
             }
@@ -282,7 +335,7 @@ $(document).ready(function(){
     });
     
     
-    $('select.location[name="country_id"]').LocationControl().on('change', function() {
+    /*$('select.location[name="country_id"]').LocationControl().on('change', function() {
         SearchOrganisationObject.Set('country_id', $(this).val());
         $('#organisationModal select.location[name="country_id"]').attr('val', $(this).val()).val($(this).val());
         $('select.location[name="region_id"]').attr('param', $(this).val()).LocationControl().on('change', function() {
@@ -290,21 +343,66 @@ $(document).ready(function(){
             $('#organisationModal select.location[name="region_id"]').attr('val', $(this).val()).val($(this).val());
             $('select.location[name="sity_id"]').attr('param', $(this).val()).LocationControl().on('change', function() {
                SearchOrganisationObject.Set('sity_id', $(this).val()); 
+               $('#organisationModal select.location[name="sity_id"]').attr('val', $(this).val()).val($(this).val());
             });
-                $('#organisationModal select.location[name="sity_id"]').attr('val', $(this).val()).val($(this).val());
+            
         });
     });
     
-    $('select[name=postResipientType]').LocationControl().on('change', function() {
+    
+    var countrySelect = $('select.location[name="country_id"]').LocationControl();
+    var regionSelect = $('select.location[name="region_id"]').LocationControl();
+    var citySelect = $('select.location[name="sity_id"]').LocationControl();*/
+    
+    
+    
+    var locationOrder = new Array();
+    locationOrder[0] = 'country_id';
+    locationOrder[1] = 'region_id';
+    locationOrder[2] = 'sity_id';
+    
+    var onLocationControlChange = function () {
+        //debugger;
+        var currentName = $(this).attr('name');
+        var selector = 'select.location[name="' + currentName + '"]';
+        var currentValue = $(this).val();
+        SearchOrganisationObject.Set(currentName, currentValue);
+        SearchFilialObject.Set(currentName, currentValue);
+        $(selector).attr('val', currentValue).val(currentValue);
+        if (locationOrder.indexOf(currentName) < locationOrder.length) {
+            var relatedName = locationOrder[locationOrder.indexOf(currentName) + 1];
+            var relatedSelector = 'select.location[name="' + relatedName + '"]';
+            $(relatedSelector).attr('param', currentValue);
+            $(relatedSelector).LocationControl();
+        }
+    }
+    
+    var currentName = locationOrder[0];
+    var currentSelector = 'select.location[name="' + currentName + '"]';     
+    $('select.location[name]').on('change', onLocationControlChange);
+    $(currentSelector).LocationControl();//.on('change', onLocationControlChange);
+    
+    
+    
+    $('select[name="postResipientType"]').LocationControl().on('change', function() {
         SearchOrganisationObject.Set('organisation_type', $(this).val());
-        $('select[name=organisation_type]').attr('val', $(this).val()).LocationControl().on('change', function() {
-            $('select[name=sfera_type]').attr('param', $(this).val()).LocationControl();
+        $('select[name="organisation_type"]').attr('val', $(this).val()).LocationControl().on('change', function() {
+            $('select[name="sfera_type"]').attr('param', $(this).val()).LocationControl();
         });
         
-        $('select[name=sferaType]').attr('param', $(this).val()).LocationControl().on('change', function() {
+        $('select[name="sferaType"]').attr('param', $(this).val()).LocationControl().on('change', function() {
             SearchOrganisationObject.Set('sfera_type', $(this).val());
-            $('select[name=sfera_type]').attr('val', $(this).val()).LocationControl();
+            $('select[name="sfera_type"]').attr('val', $(this).val()).LocationControl();
         });
+    });
+    
+    $('select[name="organisation_id"]').LocationControl().on('change', function () {
+        SearchFilialObject.Set('organisation_id', $(this).val());
+        if ($(this).val() !== '' && $(this).val() !== null && $(this).val() !== undefined) {
+            $('.filial-wrapper').removeClass('hidden');
+        } else {
+            $('.filial-wrapper').addClass('hidden');
+        }
     });
     
     
@@ -329,6 +427,8 @@ $(document).ready(function(){
                        $('form.addOrganisationForm [name="' + i + '"]').parent().addClass('has-error');
                    }
                }
+               SearchOrganisationObject.SendToOrganisation();
+               $('#organisationModal').modal('hide');
            }
        });
        
