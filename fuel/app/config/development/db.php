@@ -6,9 +6,9 @@
 return array(
 	'default' => array(
 		'connection'  => array(
-			'dsn'        => 'mysql:host=localhost;dbname=blacknote',
+			'dsn'        => 'mysql:host=127.0.0.1;dbname=blacknote',
 			'username'   => 'root',
-			'password'   => '8056202',
+			'password'   => '333666',
 		),
 	),
 );

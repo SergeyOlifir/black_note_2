@@ -26,6 +26,13 @@ class Model_User extends \Auth\Model\Auth_User {
             'key_to' => 'user_id',
             'cascade_save' => true,
             'cascade_delete' => false,
+        ),
+        'metadata' => array(
+             'key_from' => 'id',
+             'model_to' => 'Model\\Auth_Metadata',
+             'key_to' => 'user_id',
+             'cascade_save' => true,
+             'cascade_delete' => false,
         )
     );
     protected static $_many_many = array(
