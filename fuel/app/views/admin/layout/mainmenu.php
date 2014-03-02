@@ -4,7 +4,7 @@
             <li><a href="/admin/user">Пользователи</a></li>
             <li><a href="/admin/content">Статьи</a></li>
             <li><a href="/admin/organisation">Предприятия</a></li>
-            <li><a href="/posts">Жалобы/Благодарности</a></li>
+            <li><a href="/admin/post">Жалобы/Благодарности</a></li>
         </ul>
     </div>
 </div>

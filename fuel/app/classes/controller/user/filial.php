@@ -38,11 +38,11 @@ class Controller_User_Filial extends \Fuel\Core\Controller_Rest {
     
     public function post_search() {
         //var_dump(Fuel\Core\Input::post()); die();
-        $model = Model_Organisation::query()->select('id', 'title');
-        if(Fuel\Core\Input::post('organisation_type') !== '')
-            $model->where ('organisation_type', Fuel\Core\Input::post('organisation_type'));
-        if(Fuel\Core\Input::post('sfera_type') !== '')
-            $model->where ('sfera_type', Fuel\Core\Input::post('sfera_type'));
+        $model = Model_Filial::query()->select('id', 'title');
+        if(Fuel\Core\Input::post('organisation_id') !== '')
+            $model->where ('organisation_id', Fuel\Core\Input::post('organisation_id'));
+        else
+            return array ();
         if(Fuel\Core\Input::post('country_id') !== '')
             $model->where ('country_id', Fuel\Core\Input::post('country_id'));
         if(Fuel\Core\Input::post('region_id') !== '')

@@ -46,6 +46,14 @@ class Model_Post extends \Orm\Model
                 'cascade_save' => true,
                 'cascade_delete' => false,
             ),
+            
+            'filial' => array(
+                'key_from' => 'filial_id',
+                'model_to' => 'Model_Filial',
+                'key_to' => 'id',
+                'cascade_save' => true,
+                'cascade_delete' => false,
+            ),
         );
 
 	protected static $_observers = array(
@@ -63,6 +71,12 @@ class Model_Post extends \Orm\Model
         public static $post_types = array(
             '0' => 'Жалоба',
             '1' => 'Благодарность',
+        );
+        
+        public static $post_status = array(
+            2 => 'Ожидает Модерации',
+            0 => 'Не принятая',
+            3 => 'Принятая'
         );
 
 }

@@ -262,67 +262,20 @@ h1.logo {
     max-width: 400px;
 }
 
-.avatar img {
+.vote_up {
+    margin: 0 3px;
+    margin-top: 3px;
     display: block;
-    width: 48px;
-    height: 48px;
-    border-radius: 3px;
+    width: 15px;
+    height: 26px;
+    background: url(../img/icons_vote_karma_big.gif) no-repeat 0 0;
 }
 
-.post-body-inner {
+.vote_down {
+    margin: 0 3px;
+    margin-top: 3px;
     display: block;
-}
-
-.post-content .post-message-container {
-    position: relative;
-    overflow: hidden;
-    zoom: 1;
-    width: 100%;
-}
-
-.post-message p {
-    color: #FFFFFF;
-    text-align: left;
-    width: 22%;
-    margin-left: 60px;
-    display: block;
-}
-
-.post-body header {
-    width: 28%;
-
-}
-
-.footer_message {
-    display: block;
-}
-
-.reply:hover {
-    text-decoration: none;
-}
-
-.leave_comment {
-    display: block;
-    width: 25%;
-}
-
-textarea.form-control {
-    height: 60px;
-}
-
-.comment_form {
-    margin-left: 10px;
-}
-
-.comments-list {
-    margin-top: 20px;
-}
-
-.nickname {
-    margin-left: 5%;
-}
-
-.answer {
-    width: 25%;
-    display: none;
+    width: 15px;
+    height: 26px;
+    background: url(../img/icons_vote_karma_big.gif) no-repeat 0 0;
 }

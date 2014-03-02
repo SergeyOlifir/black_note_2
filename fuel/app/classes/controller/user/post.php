@@ -34,7 +34,7 @@ class Controller_User_Post extends Controller_User {
     public function action_draft() {
         $drafts = Model_Post::find('all', array(
             'where' => array(
-                array('status', 1),
+                array('status', '<', 3),
                 array('user_id', self::GetLogedInUser()->id)
             )
         ));
@@ -51,7 +51,7 @@ class Controller_User_Post extends Controller_User {
         $pagination = Pagination::forge('draftspafination', $config);
         
         $drafts = Model_Post::query()
-                            ->where('status', 1)
+                            ->where('status', '<', 3)
                             ->where('user_id', self::GetLogedInUser()->id)
                             ->rows_offset($pagination->offset)
                             ->rows_limit($pagination->per_page)
@@ -116,6 +116,36 @@ class Controller_User_Post extends Controller_User {
         } else {
             Fuel\Core\Response::redirect('/user/post/draft');
         }
+    }
+    
+    public function action_published() {
+        $drafts = Model_Post::find('all', array(
+            'where' => array(
+                array('status', 3),
+                array('user_id', self::GetLogedInUser()->id)
+            )
+        ));
+
+        $config = array(
+            'total_items'    => count($drafts),
+            'per_page'       => 5,
+            'uri_segment'    => 'page',
+            'show_first' => true,
+            'show_last' => true,
+            'num_links' => 3
+        );
+        
+        $pagination = Pagination::forge('draftspafination', $config);
+        
+        $drafts = Model_Post::query()
+                            ->where('status', 3)
+                            ->where('user_id', self::GetLogedInUser()->id)
+                            ->rows_offset($pagination->offset)
+                            ->rows_limit($pagination->per_page)
+                            ->order_by('created_at', 'desc')
+                            ->get();
+        
+        $this->template->content = Fuel\Core\View::forge('user/layout/post/index', array('posts' => $drafts), false);
     }
 }
 

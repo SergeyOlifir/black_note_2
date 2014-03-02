@@ -84,9 +84,20 @@ class Model_Filial extends \Orm\Model
                 'key_to' => 'id',
                 'cascade_save' => true,
                 'cascade_delete' => false,
+            ),
+            'organisation' => array(
+                'key_from' => 'organisation_id',
+                'model_to' => 'Model_Organisation',
+                'key_to' => 'id',
+                'cascade_save' => true,
+                'cascade_delete' => false,
             )
         );
         
 	protected static $_table_name = 'filials';
+        
+        public static function GetTableName() {
+            return self::$_table_name;
+        }
 
 }

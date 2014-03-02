@@ -5,6 +5,8 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         <?= $post->title; ?>
+                        <? if($post->status === '2'): ?><span class="label label-info">Ожидает модерации</span><? endif; ?>
+                        <? if($post->status === '0'): ?><span class="label label-danger">Пост отклонен модератором</span><? endif; ?>
                     </h3>
                 </div>
                 <div class="panel-body">
