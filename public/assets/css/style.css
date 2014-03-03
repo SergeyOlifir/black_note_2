@@ -7,8 +7,13 @@ grid-block, .main, .post, .comments li, .comment-form {
 }
 
 body {
-    background: #eee;
+    __background: #eee;
     color: #666666; 
+    __color: #fff;
+    __text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+    background-color: #333;
 }
 .navbar { 
     margin-bottom: 10px;
@@ -263,19 +268,36 @@ h1.logo {
 }
 
 .vote_up {
-    margin: 0 3px;
-    margin-top: 3px;
-    display: block;
-    width: 15px;
-    height: 26px;
-    background: url(../img/icons_vote_karma_big.gif) no-repeat 0 0;
+    color: #4eab2b;
+    font-weight: bolder;
+    padding: 0 5px;
 }
 
 .vote_down {
-    margin: 0 3px;
-    margin-top: 3px;
-    display: block;
-    width: 15px;
-    height: 26px;
-    background: url(../img/icons_vote_karma_big.gif) no-repeat 0 0;
+    color: #d40a0a;
+    font-weight: bolder;
+    padding: 0 5px;
+}
+
+.vote_up:hover, .vote_down:hover {
+    text-decoration: none;
+}
+
+.site-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%; /* For at least Firefox */
+    min-height: 100%;
+    text-align: center;
+}
+
+.site-wrapper-inner {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.cover-container {
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 50px 10px;
 }

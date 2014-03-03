@@ -20,9 +20,20 @@ class Controller_Gwest extends Controller_Application {
             return Model_Event::SortEvents($post,$id);
         } else {
                 return Model_User::find($id);
-            } 
+        } 
     }
     
+    public static function AuthCheck() {
+        if(\Auth\Auth::check()) {
+            list(, $group) = Auth::get_groups()[0];
+            if($group->id > 3) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public function before() {
         /*$request = Fuel\Core\Request::active();
         if($request->route->action !== 'home' and !\Auth\Auth::check()) {

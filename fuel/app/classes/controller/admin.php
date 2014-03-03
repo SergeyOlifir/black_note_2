@@ -12,7 +12,7 @@ class Controller_Admin extends Controller_Application {
     
     public function before() {
         $request = Fuel\Core\Request::active();
-        if($request->route->action !== 'index' and !\Auth\Auth::check()) {
+        if(!($request->route->controller === get_class() and $request->route->action === 'index' and !\Auth\Auth::check())) {
             list(, $group) = Auth::get_groups()[0];
             if($group->id < 4) {
                 \Fuel\Core\Response::redirect('/admin/index');

@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group filial-wrapper">
                 <label>Филиал</label>
                 <div class="row">
                     <div class="col-md-5">
@@ -83,7 +83,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            <!--<div class="form-group">
                 <label>Адресс организации</label>
                 <p class="form-control-static">{{adress}}</p> 
             </div>
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
 
             <div class="form-group">

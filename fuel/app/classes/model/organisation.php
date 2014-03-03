@@ -52,6 +52,7 @@ class Model_Organisation extends \Orm\Model
                 ),
 		'logo',
                 'status',
+                'raiting',
 		'created_at',
 		'updated_at',
 	);
@@ -95,6 +96,14 @@ class Model_Organisation extends \Orm\Model
             'filials' => array(
                 'key_from' => 'id',
                 'model_to' => 'Model_Filial',
+                'key_to' => 'organisation_id',
+                'cascade_save' => true,
+                'cascade_delete' => false,
+            ),
+            
+            'posts' => array(
+                'key_from' => 'id',
+                'model_to' => 'Model_Post',
                 'key_to' => 'organisation_id',
                 'cascade_save' => true,
                 'cascade_delete' => false,

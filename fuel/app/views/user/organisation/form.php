@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label>Логотип</label>
                             <div>
                                 <a href="#" class="thumbnail">
@@ -77,7 +77,7 @@
                                 </a>
                             </div>
                             <input class="logo-file" type="file" />
-                        </div>
+                        </div>-->
 
                     </fieldset>    
                 </form>
