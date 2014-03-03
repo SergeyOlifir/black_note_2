@@ -57,9 +57,9 @@
 <? endif; ?>
 <div class="clearfix"></div>
     <ul class="comments-list list-unstyled">
-        
+        <? if (Auth::check() && (int)$post->user->group_id > 2): ?>
         <?php echo renderComments($comments, 0, $post->id); ?>
-  
+         <? endif; ?>
     </ul>
 
 
@@ -80,11 +80,15 @@ function getAvatar($user) {
                 foreach ($comments as $comment) {
                     if($comment->parent_id == $parentId) {
                         $user = reset($comment->user->metadata);
-                        
+                        if(isset($user->value)) {
+                            $avatar = $user->value;
+                        } else  {
+                            $avatar = '/files/avatars/no_foto.jpg';
+                        }
                         $res = $res .' <li  class="comment">
        <div class="avatar pull-left">
-           <a href="">
-               <img src="'.getAvatar($user->value).'">
+           <a href="/gwest/user/view/'.$comment->user->id.'">
+               <img src="'. $avatar .'">
            </a>
            
        </div>
