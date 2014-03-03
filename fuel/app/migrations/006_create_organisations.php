@@ -20,6 +20,7 @@ class Create_organisations
 			'ovner' => array('constraint' => 100, 'type' => 'varchar'),
 			'logo' => array('type' => 'text', 'null' => true),
                         'status' => array('type' => 'int'),
+                        'raiting' => array('type' => 'int', 'default' => 0),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 
