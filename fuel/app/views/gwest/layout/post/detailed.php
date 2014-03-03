@@ -29,6 +29,7 @@
             if (Auth::check() && (int)$post->user->group_id > 2) 
                 {
                 ?>
+                <label>Комментарии:</label>
                 <div class="leave_comment">
                     <div class="avatar pull-left">
                         <a href="">
@@ -43,7 +44,8 @@
                         
                     
                  <?= Form::open(array('method' => 'post', 'role' => 'form', 'action' => 'gwest/posts/addcomment')); ?>
-                <textarea rows="10" cols="25" name="text" class="form-control" placeholder="adasds">
+                        
+                  <textarea rows="10" cols="25" name="text" class="form-control" placeholder="Введите текст комментария">
                   </textarea>
                   <?= Form::hidden('post_id', $post->id);?>
                     <button class="btn btn-default btn pull-right" type="submit">Сохранить</button>
@@ -51,7 +53,7 @@
                     </div>
                     </div>
                 <?php } else { ?>
-            <h1>Что бы оставлять комментарии нужно пройти <a href="">Регистрацию</a></h1> 
+            <h1>Что бы просматривать и  оставлять комментарии нужно пройти <a data-target='#login' data-toggle="modal"  href="">Регистрацию</a></h1> 
                <?php } ?>
          
 <? endif; ?>

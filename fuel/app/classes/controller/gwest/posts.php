@@ -47,12 +47,17 @@ class Controller_Gwest_Posts extends Controller_Gwest {
         $model->post_id = Fuel\Core\Input::post()['post_id'];
         $model->parent_id = 0;
         $model->save();*/
-     
+        
         $fields['comment'] = Fuel\Core\Input::post('text');
         $fields['user_id'] = self::GetLogedInUser()->id;
         $fields['post_id'] = Fuel\Core\Input::post('post_id');
         $fields['parent_id'] = Fuel\Core\Input::post('parent_id') != NULL ? Fuel\Core\Input::post('parent_id') : 0;
-        $model = Model_Comment::forge($fields)->save();
+        
+        $validator = Validation::forge('validate_post');
+        $validator->add($fields['comment'], 'Comment')->add_rule('required');
+        if($validator->run()) {
+             $model = Model_Comment::forge($fields)->save();
+        }
         Fuel\Core\Response::redirect('gwest/posts/view/'.Fuel\Core\Input::post('post_id'));
     }
 }
