@@ -13,6 +13,8 @@ return array(
 				4 => '005_create_posts',
 				5 => '006_create_organisations',
 				6 => '007_create_filials',
+				7 => '008_create_messages',
+				8 => '009_create_votes',
 			),
 		),
 		'module' => 
