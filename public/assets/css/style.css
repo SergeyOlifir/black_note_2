@@ -370,3 +370,13 @@ textarea.form-control {
  textarea { 
      resize: none;
  }
+
+ .media > .pull-left {
+    height: 40px;
+    margin-right: 10px;
+    width: 40px;
+}
+
+.media > .pull-left img {
+    width: 100%;
+}

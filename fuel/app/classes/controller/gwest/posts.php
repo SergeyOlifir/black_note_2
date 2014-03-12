@@ -48,15 +48,19 @@ class Controller_Gwest_Posts extends Controller_Gwest {
         $model->parent_id = 0;
         $model->save();*/
         
-        $fields['comment'] = Fuel\Core\Input::post('text');
-        $fields['user_id'] = self::GetLogedInUser()->id;
-        $fields['post_id'] = Fuel\Core\Input::post('post_id');
-        $fields['parent_id'] = Fuel\Core\Input::post('parent_id') != NULL ? Fuel\Core\Input::post('parent_id') : 0;
+        //$fields['comment'] = Fuel\Core\Input::post('text');
+        
         
         $validator = Validation::forge('validate_post');
-        $validator->add($fields['comment'], 'Comment')->add_rule('required');
+        $validator->add('comment', 'Comment')->add_rule('required');
         if($validator->run()) {
-             $model = Model_Comment::forge($fields)->save();
+            $fields = $validator->validated();
+            $fields['user_id'] = self::GetLogedInUser()->id;
+            $fields['post_id'] = Fuel\Core\Input::post('post_id');
+            $fields['parent_id'] = Fuel\Core\Input::post('parent_id') != NULL ? Fuel\Core\Input::post('parent_id') : 0;
+            $model = Model_Comment::forge($fields)->save();
+        } else {
+            var_dump(e($validator->error())); die();
         }
         Fuel\Core\Response::redirect('gwest/posts/view/'.Fuel\Core\Input::post('post_id'));
     }

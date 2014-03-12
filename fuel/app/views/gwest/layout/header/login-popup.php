@@ -8,13 +8,14 @@
         <div class="modal-body">
 
             <form role="form" id="login-form" action="/auth/login">
-              <span class="label label-danger none"></span>
+              <p class="alert alert-danger"></p>
               <div class="form-group">
                 <input type="text" class="form-control" id="exampleInputEmail1" name="username" placeholder="Enter Name or Email">
               </div>
               <div class="form-group">
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
               </div>
+              
               <div class="clearfix">
                 <div class="forgot-password pull-left">
                     <a href="#forgotPassword" data-toggle="modal">Забыли пароль?</a>

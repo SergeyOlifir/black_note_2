@@ -45,8 +45,7 @@
                     
                  <?= Form::open(array('method' => 'post', 'role' => 'form', 'action' => 'gwest/posts/addcomment')); ?>
                         
-                  <textarea rows="10" cols="25" name="text" class="form-control" placeholder="Введите текст комментария">
-                  </textarea>
+                  <textarea rows="10" cols="25" name="comment" class="form-control" placeholder="Введите текст комментария"></textarea>
                   <?= Form::hidden('post_id', $post->id);?>
                     <button class="btn btn-default btn pull-right" type="submit">Сохранить</button>
                 <?= \Fuel\Core\Form::close(); ?>
@@ -63,8 +62,6 @@
         <?php echo renderComments($comments, 0, $post->id); ?>
          <? endif; ?>
     </ul>
-
-
 <?php
 
 function getAvatar($user) {
@@ -81,43 +78,31 @@ function getAvatar($user) {
                 $res = '';
                 foreach ($comments as $comment) {
                     if($comment->parent_id == $parentId) {
-                        $user = reset($comment->user->metadata);
-                        if(isset($user->value)) {
-                            $avatar = $user->value;
+                        //$user = reset($comment->user->metadata);
+                        if(isset($comment->user->avatar)) {
+                            $avatar = $comment->user->avatar;
                         } else  {
                             $avatar = '/files/avatars/no_foto.jpg';
                         }
                         $res = $res .' <li  class="comment">
-       <div class="avatar pull-left">
-           <a href="/gwest/user/view/'.$comment->user->id.'">
+       <div class="media">
+           <a class="pull-left" href="/gwest/user/view/'.$comment->user->id.'">
                <img src="'. $avatar .'">
            </a>
-           
+           <div class="media-body">
+           <h4 class="media-heading">
+               <a href="/gwest/user/view/'.$comment->user->id.'" class="">'. $comment->user->username   .'</a>&nbsp;&nbsp;&nbsp;
+               <a href="#" class="reply" data-comment-id="' . $comment->id .'"> Ответить</a>
+           </h4>
+           <p>'   
+                . $comment->comment . '
+                <form data-comment-id="'.$comment->id.'" class="answer" method="post" role="form" action="/gwest/posts/addcomment.html" accept-charset="utf-8">                <textarea rows="10" cols="25" name="comment" class="form-control" placeholder="Введите текст комментария"></textarea>
+                   <input name="post_id" value="'.$post_id.'" type="hidden" id="form_post_id">
+                   <input name="parent_id" value="'.$comment->id.'" type="hidden" id="form_post_id"><button class="btn btn-default btn pull-right" type="submit">Сохранить</button>
+                </form>
+            </p>
        </div>
-       <div class="post-body">
-           <header>
-               <a href="" class="nickname">'. $comment->user->username   .'</a>
-           </header>
-           
-       </div>
-       <div class="post-body-inner">
-           <div class="post-message-container">
-               <div class="post-message">
-                   <p>
-                    '   
-                       . $comment->comment . 
-                        '
-                     <form data-comment-id="'.$comment->id.'" class="answer" method="post" role="form" action="http://blacknote.loc/gwest/posts/addcomment.html" accept-charset="utf-8">                <textarea rows="10" cols="25" name="text" class="form-control" placeholder="adasds">                  </textarea>
-                        <input name="post_id" value="'.$post_id.'" type="hidden" id="form_post_id">
-                        <input name="parent_id" value="'.$comment->id.'" type="hidden" id="form_post_id"><button class="btn btn-default btn pull-right" type="submit">Сохранить</button>
-                   </form>
-                   </p>
-                   
-                   <a href="#" class="reply" data-comment-id="' . $comment->id
-                        .'"> Ответить</a>
-               </div>
-           </div>
-       </div>
+       
        <ul class="comments-list ">
             '  .  renderComments($comments, $comment->id, $post_id)  . '
        </ul>
