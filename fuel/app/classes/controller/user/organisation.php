@@ -24,11 +24,12 @@ class Controller_User_Organisation extends \Fuel\Core\Controller_Rest {
             $fields['status'] = 1;
             $fields['user_id'] = self::GetLogedInUser()->id;
             $fields['logo'] = 'dd';
+            $fields['raiting'] = 0;
             try {
                 Model_Organisation::forge($fields)->save();
                 return $this->response(array('status' => 'success')); 
             } catch (Exception $ex) {
-
+                
             }
             
         } else {

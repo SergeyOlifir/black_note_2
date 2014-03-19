@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse">
     <div class="container">
-        <ul class="nav navbar-nav pull-left">
-            <ul class="nav navbar-nav pull-left">
+        <ul class="nav navbar-nav pull-left" >
+            <ul class="nav navbar-nav pull-left" >
                 <li><a href="/">Главная</a></li>
                 <li><a href="/gwest/content/article">Статьи</a></li>
                 <li><a href="/gwest/organisation/index">Рейтинги</a></li>
