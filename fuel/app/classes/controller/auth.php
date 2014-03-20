@@ -23,7 +23,7 @@ class Controller_Auth extends Controller_Application {
                         $validator->validated('username'),
                         $validator->validated('password'),
                         $validator->validated('emale'),
-                        \Config::get('application.user.default_group', 1),
+                        \Config::get('application.user.default_group', 3),
                         array(
                             
                         )
