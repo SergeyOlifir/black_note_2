@@ -23,7 +23,7 @@ class Controller_User_Organisation extends \Fuel\Core\Controller_Rest {
             $fields = $validator->validated();
             $fields['status'] = 1;
             $fields['user_id'] = self::GetLogedInUser()->id;
-            $fields['logo'] = 'dd';
+            $fields['logo'] = '/files/avatars/no_foto.jpg';
             $fields['raiting'] = 0;
             try {
                 Model_Organisation::forge($fields)->save();

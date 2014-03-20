@@ -26,9 +26,20 @@ class Controller_Admin_Organisation extends Controller_Admin {
                     $fields = $validator->validated();
                     $fields['status'] = 2;
                     try {
+                        /*var_dump($validator->field()); die();
                         foreach($fields as $key => $value) {
                             $model->set($key, $value);
-                        }
+                        }*/
+                        $model->organisation_type = $fields['organisation_type'];
+                        $model->sfera_type = $fields['sfera_type'];
+                        $model->country_id = $fields['country_id'];
+                        $model->region_id = $fields['region_id'];
+                        $model->sity_id = $fields['sity_id'];
+                        $model->title = $fields['title'];
+                        $model->adress = $fields['adress'];
+                        $model->phone = $fields['phone'];
+                        $model->ovner = $fields['ovner'];
+                        $model->status = $fields['status'];
                         $model->save();
                         $this->SetNotice('success', 'Организация одобрена');
                     } catch (Exception $ex) {
