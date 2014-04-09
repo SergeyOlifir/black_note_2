@@ -19,6 +19,11 @@
                 <?= Fuel\Core\Form::select('type', isset($post['type']) ? $post['type'] : 0, Model_Post::$post_types , array('class' => 'form-control')); ?>
                 <p class="help-block">Выбирите тип сообщения из списка</p>
             </div>
+            <div class="form-group <?= isset($errors['object']) ? 'has-error' : ''; ?>">
+                <label for="InputLogin">Объект жалобы</label>
+                <?= Fuel\Core\Form::select('object', isset($post['object']) ? $post['object'] : 0, Model_Post::$post_objects , array('class' => 'form-control')); ?>
+                <p class="help-block">Выберете из списка, на кого конкретно жалоба или кому благодарность…</p>
+            </div>
             <div class="form-group">
                 <label for="InputLogin">На кого адресовано сообщение</label>
                 <select name="postResipientType" class="form-control" val="<?= isset($post['organisation']) ? $post['organisation']->organisation_type : ''; ?>" param="" action="<?= \Fuel\Core\Uri::create('/location/organisationtypes/'); ?>" ></select>
