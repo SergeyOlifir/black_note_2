@@ -48,7 +48,11 @@ class Controller_Gwest extends Controller_Application {
         $users = Model_User::count();
         $users = $users *276;
         $users = number_format($users);
-        $this->template->content = \Fuel\Core\View::forge('gwest/layout/home/content');
+        $query = Model_Content::query()->where('type', 0);
+        $articles =$query->limit(5)->get();
+        $query = Model_Content::query()->where('type', 1);
+        $zakon =$query->limit(5)->get();
+        $this->template->content = \Fuel\Core\View::forge('gwest/layout/home/content', array('posts' => $articles, 'zakon' => $zakon), FALSE);
         $this->template->footer = \Fuel\Core\View::forge('gwest/layout/home/counter', array('countID'  => $users) );
     }
 }
