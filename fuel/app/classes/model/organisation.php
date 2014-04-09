@@ -114,11 +114,11 @@ class Model_Organisation extends \Orm\Model
         
         public static $organisation_types = array(
             '0' => array(
-                    'title' => 'Организация',
+                    'title' => 'Организация или частное лицо',
                     'id' => '0'
                 ),
             '1' => array(
-                    'title' => 'Государство',
+                    'title' => 'Государственное учреждение',
                     'id' => '1'
                 )
         );

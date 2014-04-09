@@ -18,7 +18,7 @@
                         <div class="form-group">
                             <label for="InputLogin">Сфера деятельности</label>
                             <select name="sfera_type" class="form-control" param="" action="<?= \Fuel\Core\Uri::create('/location/organisationsferes/'); ?>"></select>
-                            <p class="help-block">Выбирите из списка</p>
+                            <p class="help-block">Выберете из списка видов деятельности…</p>
                         </div>
 
                         <div class="form-group">
@@ -40,16 +40,19 @@
                                     </div>
                                 </div>
                             </div>
+                            <p class="help-block">Место расположение объекта жалобы или благодарности…</p>
                         </div>
 
                         <div class="form-group">
                             <label>Название организации</label>
-                            <input name="title" class="form-control" type="text" value="" placeholder="Адресс организации"/> 
+                            <input name="title" class="form-control" type="text" value="" placeholder="Адресс организации"/>
+                            <p class="help-block">Название может включать символы кириллицы или латиницы, не больше 150 символов…</p>
                         </div>
 
                         <div class="form-group">
                             <label>Адресс организации</label>
-                            <input name="adress" class="form-control" type="text" value="" placeholder="Адресс организации"/> 
+                            <input name="adress" class="form-control" type="text" value="" placeholder="Название улицы, номер здания, артикль здания, номер офиса…"/>
+                            <p class="help-block">Пример: ул. Философская 15 а, офис 15</p>
                         </div>
 
                         <div class="form-group">
@@ -57,14 +60,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input name="phone" id="phone" class="form-control" type="text" value="" placeholder="Контактный телефон"/>
-                                        <p class="help-block">Телефон организации</p>
+                                        <input name="phone" id="phone" class="form-control" type="text" value="" placeholder="Телефон организации"/>
+                                        <p class="help-block">Пример: 80567777777</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <input name="ovner" id="fio" class="form-control" type="text" value="" placeholder="Ф.И.О."/>
-                                        <p class="help-block">Ф.И.О руководителя</p>
+                                        <p class="help-block">Ф.И.О. руководителя полностью…</p>
                                     </div>
                                 </div>
                             </div>

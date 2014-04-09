@@ -25,7 +25,6 @@
         <div class="modal-footer">
             <div class="btn-group">
                 <button type="button" class="btn btn-link" data-dismiss="modal">Отмена</button>
-                <a href="#" class="btn btn-primary btn-rounded" data-target="#login" data-toggle="modal">Вход</a>
                 <button type="button" class="btn btn-primary btn-rounded" id="registr-button">Отправить</button>
             </div>
         </div>

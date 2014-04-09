@@ -43,13 +43,13 @@ class Controller_Auth extends Controller_Application {
                         
                         $email = Email::forge();
                         $email->from('info@eventpics.com', 'no-reply');
-                        $email->subject('EventPics Email Confirmation');
+                        $email->subject('Blacknote robots answer');
                         $email->to($user->email);
-                        $email->body("EventPics Email Confirmation. \n To finish registration on EventPics please naviagte to the link below \n" . \Uri::create('auth/register/'. urlencode($hash) . " \n The link is valid next 30 minutes"));
+                        $email->body("Blacknote robots answer. \n Для завершения регистрации и доступа к сервисам нашего ресурса перейдите по ссылке \n" . \Uri::create('auth/register/'. urlencode($hash) . " \n Благодарим Вас за внимание к нашему ресурсу. Теперь Вы сможете оставлять свои жалобы, благодарности и комментарии"));
                         try {
                             $email->send();
                             $status = 'success';
-                            $error_string = 'Check Email fo next instructions';
+                            $error_string = 'Благодарим за регистрацию. На почту указанную Вами при регистрации отправлено сообщение, подтверждающее Ваши возможности пользования ресурсом Blacknote…';
                         } catch(\EmailValidationFailedException $e) {
                             $status = 'failed';
                             $error_string = 'Validation Error';

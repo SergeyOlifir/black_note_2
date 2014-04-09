@@ -17,5 +17,10 @@
             </div>
         <? endforeach; ?>
     <? endif;?>
+    
+    <? if(count($messages) < 1): ?>
+        <h3> У Вас нет сообщений…</h3>
+    <? endif; ?>
+    
 </div>
 

@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group <?= isset($errors['userage']) ? 'has-error' : ''; ?>">
                 <label>Дата рождения</label>
                 <div class="row">
                     <div class=" date col-md-4 span2">
@@ -73,17 +73,18 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label>О себе</label>
-                <?= Fuel\Core\Form::textarea('abaut', \Auth\Auth::get('abaut'), array('class' => 'form-control', 'rows' => 6)); ?>
-                <?= isset($errors['abaut']) ? "<span class=\"help-block\">{$errors['abaut']}</span>" : ''; ?>
-            </div>
-
-            <div class="form-group">
+            <div class="form-group <?= isset($errors['job']) ? 'has-error' : ''; ?>">
                 <label>Интересы, вид деятельности</label>
                 <?= Fuel\Core\Form::input('job', \Auth\Auth::get('job'), array('class' => 'form-control')); ?>
                 <?= isset($errors['job']) ? "<span class=\"help-block\">{$errors['job']}</span>" : ''; ?>
             </div>
+            
+            <div class="form-group <?= isset($errors['abaut']) ? 'has-error' : ''; ?>">
+                <label>О себе</label>
+                <?= Fuel\Core\Form::textarea('abaut', \Auth\Auth::get('abaut'), array('class' => 'form-control', 'rows' => 6)); ?>
+                <?= isset($errors['abaut']) ? "<span class=\"help-block\">{$errors['abaut']}</span>" : ''; ?>
+            </div>
+            
             <div class="form-group">
                 <button class="btn btn-default btn-lg" type="submit">Сохранить</button>
             </div>

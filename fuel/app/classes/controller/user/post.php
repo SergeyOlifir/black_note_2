@@ -18,7 +18,8 @@ class Controller_User_Post extends Controller_User {
                     $fields['status'] = 1;
                     $fields['user_id'] = self::GetLogedInUser()->id;
                     $model = Model_Post::forge($fields)->save();
-                    $this->SetNotice('success', 'Пост Добавлен в черновики');
+                    $this->SetNotice('success', 'Ваше сообщение сохранено. После модерации оно будет отображено на ресурсе. Сообщение о модерации отобразиться в закладке «Сообщения». 
+Отредактировать своё сообщение Вы сможете в закладке «Черновики»');
                 } catch (Exception $ex) {
                     var_dump($ex->getMessage()); die();
                 }

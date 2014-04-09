@@ -151,7 +151,7 @@ $(document).ready(function(){
                     }
                 } else {
                     $('#registr').modal('hide');
-                    $('#login .label-danger').html(responce_object['error-string']);
+                    $('#login .alert-danger').html(responce_object['error-string']);
                     $('#login').modal('show');
                 }
             }

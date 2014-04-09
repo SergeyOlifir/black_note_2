@@ -30,6 +30,6 @@
         <? endforeach; ?>
         <?= Pagination::instance('draftspafination')->render(); ?>
     <? else: ?>
-        <h3>Статей пока нету( Но их можно добавить</h3>
+        <h3>Нет созданных Вами постов…</h3>
     <? endif;?>
 </div>

@@ -59,13 +59,14 @@ class Controller_User_Profile extends Controller_User {
             if($validator->run()) {
                 try {
                     Auth::update_user($validator->validated());
-                    $this->SetNotice("success", "Personal information was updated successfully");
+                    $this->SetNotice("success", "Ваша информация спешно изменена…");
                 } catch (Exception $e) {
                     var_dump($e); die();
                     $errors['old_password'] = 'Old password is invalid';
                 }
             } else {
                 $errors = e($validator->error());
+                $this->SetNotice("danger", "Пожалуйста, корректно заполните поля Ваших данных…");
             }
             
         }

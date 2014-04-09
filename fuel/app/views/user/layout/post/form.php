@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label for="InputLogin">Сфера деятельности</label>
                 <select name="sferaType" class="form-control" param="" val="<?= isset($post['organisation']) ? $post['organisation']->sfera_type : ''; ?>" action="<?= \Fuel\Core\Uri::create('/location/organisationsferes/'); ?>" ></select>
-                <p class="help-block">Выбирите из списка</p>
+                <p class="help-block">Выберете из списка видов деятельности…</p>
             </div>
 
             <div class="form-group">
@@ -49,6 +49,7 @@
                         </div>
                     </div>
                 </div>
+                <p class="help-block">Место расположение объекта жалобы или благодарности…</p>
             </div>
 
             <div class="form-group">
@@ -57,7 +58,7 @@
                     <div class="col-md-5">
                         <div class="form-group">
                             <select class="form-control" val="<?= isset($post['organisation_id']) ? $post['organisation_id'] : ''; ?>" name="organisation_id"></select>
-                            <p class="help-block">Выбирите из списка</p>
+                            <p class="help-block">Выберите из списка или добавьте новое предприятие, организацию, филиал…</p>
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -109,13 +110,15 @@
 
 
             <div class="form-group">
-                <label>Заголовок</label>
+                <label>Заголовок жалобы или благодарности</label>
                 <input name="title" id="title" class="form-control" type="text" value="<?= isset($post['title']) ? $post['title'] : ''; ?>" placeholder="Заголовок"/>
+                <p class="help-block">Пример: Название товара или услуги плохого качества…</p>
             </div>
 
             <div class="form-group">
-                <label>Текст</label>
-                <textarea name="body" id="message"><?= isset($post['body']) ? $post['body'] : ''; ?></textarea> 
+                <label>Текст жалобы или благодарности</label>
+                <textarea name="body" id="message"><?= isset($post['body']) ? $post['body'] : ''; ?></textarea>
+                <p class="help-block">Текст жалобы или благодарности не должен нарушать правил пользования ресурсом, подробнее о правилах пользования… </br> Документы и видеофайлы могут быть добавлены в жалобы/благодарность в виде ссылки на сервер хранения данных (Например: youtube, ex.ua…)</p>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary " value="Сохранить" />

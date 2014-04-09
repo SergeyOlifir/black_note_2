@@ -17,7 +17,6 @@
             <div class="modal-footer">
                 <div class="btn-group">
                     <a type="button" class="btn btn-primary upload-button">Загрузить<input name="username" type="file" class="form-control"></a>
-                    <button type="button" class="btn btn-primary">Изменить</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
                 </div>
             </div>
