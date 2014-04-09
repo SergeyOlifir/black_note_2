@@ -24,12 +24,15 @@ class Controller_User_Post extends Controller_User {
                     var_dump($ex->getMessage()); die();
                 }
             } else {
-                var_dump(e($validator->error())); die();
+                $this->SetNotice('danger', 'Пожалуйста, корректно заполните все поля…');
+                //var_dump(e($validator->error())); die();
+                $this->RegisterJs('tinymce/tinymce.min.js');
+                $this->template->content = Fuel\Core\View::forge('user/layout/post/form', array('errors' => e($validator->error())));
             }
+        } else {
+            $this->RegisterJs('tinymce/tinymce.min.js');
+            $this->template->content = Fuel\Core\View::forge('user/layout/post/form');
         }
-        
-        $this->RegisterJs('tinymce/tinymce.min.js');
-        $this->template->content = Fuel\Core\View::forge('user/layout/post/form');
     }
     
     public function action_draft() {
