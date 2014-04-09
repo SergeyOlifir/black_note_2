@@ -14,7 +14,7 @@
     <?= Form::open(array('method' => 'post', 'role' => 'form', 'class' => 'add-post')); ?>
         <fieldset>
             <h2>Жалобы, благодарности и т.д.</h2>
-            <div class="form-group">
+            <div class="form-group <?= isset($errors['type']) ? 'has-error' : ''; ?>">
                 <label for="InputLogin">Тип сообщения</label>
                 <?= Fuel\Core\Form::select('type', isset($post['type']) ? $post['type'] : 0, Model_Post::$post_types , array('class' => 'form-control')); ?>
                 <p class="help-block">Выбирите тип сообщения из списка</p>
@@ -52,7 +52,7 @@
                 <p class="help-block">Место расположение объекта жалобы или благодарности…</p>
             </div>
 
-            <div class="form-group">
+            <div class="form-group <?= isset($errors['organisation_id']) ? 'has-error' : ''; ?>">
                 <label>Название организации</label>
                 <div class="row">
                     <div class="col-md-5">
@@ -85,37 +85,14 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="form-group">
-                <label>Адресс организации</label>
-                <p class="form-control-static">{{adress}}</p> 
-            </div>
 
-            <div class="form-group">
-                <label>Контактная информация</label>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <p class="form-control-static">{{phone}}</p>
-                            <p class="help-block">Телефон организации</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <p class="form-control-static">{{fio}}</p>
-                            <p class="help-block">Ф.И.О руководителя</p>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-
-
-            <div class="form-group">
+            <div class="form-group <?= isset($errors['title']) ? 'has-error' : ''; ?>">
                 <label>Заголовок жалобы или благодарности</label>
                 <input name="title" id="title" class="form-control" type="text" value="<?= isset($post['title']) ? $post['title'] : ''; ?>" placeholder="Заголовок"/>
                 <p class="help-block">Пример: Название товара или услуги плохого качества…</p>
             </div>
 
-            <div class="form-group">
+            <div class="form-group <?= isset($errors['body']) ? 'has-error' : ''; ?>">
                 <label>Текст жалобы или благодарности</label>
                 <textarea name="body" id="message"><?= isset($post['body']) ? $post['body'] : ''; ?></textarea>
                 <p class="help-block">Текст жалобы или благодарности не должен нарушать правил пользования ресурсом, подробнее о <a href="/gwest/abaut">правилах пользования…</a> </br> Документы и видеофайлы могут быть добавлены в жалобы/благодарность в виде ссылки на сервер хранения данных (Например: youtube, ex.ua…)</p>
