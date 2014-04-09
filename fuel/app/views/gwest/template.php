@@ -46,5 +46,9 @@
             <?= isset($content) ? $content : '' ?>
         </div>
     </div>
+    <? if(isset($footer)) :?>
+    
+    <?= $footer ?>
+    <? endif; ?>
 </body>
 </html>

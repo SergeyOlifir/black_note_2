@@ -1,7 +1,9 @@
 <?php
 class Controller_Application extends Controller_Template {
     public $template = 'gwest/template';
-    
+    public $countID = 0;
+
+
     protected function SetNotice($notiseType, $notiseText) {
         Session::set('notice_type', $notiseType);
         Session::set_flash('notice', $notiseText);
