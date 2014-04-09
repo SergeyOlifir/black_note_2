@@ -9,6 +9,11 @@ class Model_Post extends \Orm\Model
                     'ladel' => 'type',
                     'validation' => array('required')
                 ),
+                'object' => array(
+                    'data_type' => 'int',
+                    'ladel' => 'type',
+                    'validation' => array('required')
+                ),
 		'organisation_id' => array(
                     'data_type' => 'int',
                     'ladel' => 'organisation_id',
