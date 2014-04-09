@@ -448,3 +448,12 @@ textarea.form-control {
 .alert {
     display: block;
 }
+
+.all_articles_from_weak {
+    color: #fff;
+}
+
+.all_zakon_from_weak {
+    color: #fff;
+    padding-top: 10px;
+}
