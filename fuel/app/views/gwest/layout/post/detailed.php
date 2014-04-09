@@ -30,7 +30,7 @@
                 {
                 ?>
                 <label>Комментарии:</label>
-                <div class="leave_comment">
+                <div class="leave_comment clearfix">
                     <div class="avatar pull-left">
                         <a href="">
                             <? if(\Auth\Auth::get('avatar')): ?>
@@ -45,7 +45,8 @@
                     
                  <?= Form::open(array('method' => 'post', 'role' => 'form', 'action' => 'gwest/posts/addcomment')); ?>
                         
-                  <textarea rows="10" cols="25" name="comment" class="form-control" placeholder="Введите текст комментария"></textarea>
+                  <textarea rows="10" cols="85" name="comment" class="form-control" placeholder="Введите текст комментария"></textarea>
+                  <p class="help-block">Текст комментария не должен нарушать правил пользования ресурсом, подробнее о <a href="/gwest/abaut">правилах пользования…</a></p>
                   <?= Form::hidden('post_id', $post->id);?>
                     <button class="btn btn-default btn pull-right" type="submit">Сохранить</button>
                 <?= \Fuel\Core\Form::close(); ?>

@@ -130,24 +130,24 @@ $.prototype.LocationControl = function() {
 
 $(document).ready(function(){
     $('#registr-button').on('click', function(){
-       $('.loader').removeClass('none');
+       $('[control-type="overlay"]').removeClass('none');
        $.ajax({
             type: 'post',
             url: $('#registr-form').attr('action'),
             data: $('#registr-form').serialize(),
             success: function (data) {
-                $('.loader').addClass('none');
+                $('[control-type="overlay"]').addClass('none');
                 var responce_object = JSON.parse(data);
                 $('.form-group').removeClass('has-error');
                 if(responce_object.status === 'failed') {
-                    $('#registr-form .label-danger').html('');
+                    $('#registr-form .alert-danger').html('');
                     if(responce_object['error-string'] ==="Validation Error") {
                         for(var i in responce_object.validation_errors) {
                             $('input[name="' + i + '"]').parent().addClass('has-error');
-                            $('#registr-form .label-danger').append('<p>' + responce_object.validation_errors[i] + '</p>');
+                            $('#registr-form .alert-danger').append('<p>' + responce_object.validation_errors[i] + '</p>');
                         }
                     } else {
-                       $('#registr-form .label-danger').html(responce_object['error-string']); 
+                       $('#registr-form .alert-danger').html(responce_object['error-string']); 
                     }
                 } else {
                     $('#registr').modal('hide');
@@ -236,7 +236,7 @@ $(document).ready(function(){
     });
     
     $('#sedmail-button').on('click', function(){
-       $('.loader').removeClass('none');
+       $('[control-type="overlay"]').removeClass('none');
        $('.alert.invite').html('').removeClass('alert-success').removeClass('alert-danger');
        $('#sedmail-form .has-error').removeClass('has-error');
        $.ajax({
@@ -244,7 +244,7 @@ $(document).ready(function(){
             url: $('#sedmail-form').attr('action'),
             data: $('#sedmail-form').serialize(),
             success: function (data) {
-                $('.loader').addClass('none');
+                $('[control-type="overlay"]').addClass('none');
                 var responce_object = JSON.parse(data);
                 $('.form-group').removeClass('has-error');
                 if(responce_object.status === 'failed') {

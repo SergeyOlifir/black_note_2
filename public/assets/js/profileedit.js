@@ -57,6 +57,7 @@ $(document).ready(function() {
     });
     
     $('#apply').on('click', function(e) {
+        $('[control-type="overlay"]').removeClass('none');
         e.preventDefault();
         CropImage($('#editModalImage')[0], SelectionPosition.x * (-1), SelectionPosition.y * (-1), SelectionPosition.w, SelectionPosition.h, $('#editModalImage').width(), $('#editModalImage').height(), function(canvas){
             canvas.toBlob(function(file){
