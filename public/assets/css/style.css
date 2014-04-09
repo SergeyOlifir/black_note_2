@@ -347,7 +347,7 @@ h1 + .lead, h1 + .lead p {
 
 .leave_comment {
     display: block;
-    width: 25%;
+    width: 100%;
 }
 
 textarea.form-control {
@@ -383,4 +383,31 @@ textarea.form-control {
 
 .media > .pull-left img {
     width: 100%;
+}
+
+.abaut h2 {
+    font-size: 24px;
+}
+
+.abaut ul {
+    list-style: decimal;
+}
+
+.none {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: url('../img/ajax-loader.gif') no-repeat center center rgba(0,0,0,0.8);
+    __background-color: rgba(0,0,0,0.8);
+}
+
+.alert {
+    display: block;
 }

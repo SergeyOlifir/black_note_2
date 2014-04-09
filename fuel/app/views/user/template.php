@@ -22,6 +22,7 @@
     <? endif; ?>
 </head>
 <body>
+    <div class="overlay none" control-type="overlay"></div>
     <header>
         <div class="container">
             <h1 class="logo pull-left">Black Note</h1>

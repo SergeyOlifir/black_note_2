@@ -7,7 +7,7 @@
                 <li><a href="/gwest/organisation/index">Рейтинги</a></li>
                 <li><a href="/gwest/posts/">Жалобы/Благодарности</a></li>
                 <li><a href="/gwest/content/zakon">Законодательство</a></li>
-                <li><a href="/">О проекте</a></li>
+                <li><a href="/gwest/abaut">О проекте</a></li>
             </ul>
         </ul>
         <ul class="nav navbar-nav pull-right">
