@@ -45,7 +45,11 @@ class Controller_Gwest extends Controller_Application {
     public function action_home () {
         $data = array();
         $this->template->title = 'Example Page';
+        $users = Model_User::count();
+        $users = $users *276;
+        $users = number_format($users);
         $this->template->content = \Fuel\Core\View::forge('gwest/layout/home/content');
+        $this->template->footer = \Fuel\Core\View::forge('gwest/layout/home/counter', array('countID'  => $users) );
     }
 }
 
