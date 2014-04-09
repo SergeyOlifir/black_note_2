@@ -20,12 +20,12 @@ class Controller_User_Post extends Controller_User {
                     $model = Model_Post::forge($fields)->save();
                     $this->SetNotice('success', 'Ваше сообщение сохранено. После модерации оно будет отображено на ресурсе. Сообщение о модерации отобразиться в закладке «Сообщения». 
 Отредактировать своё сообщение Вы сможете в закладке «Черновики»');
+                    \Fuel\Core\Response::redirect('/user/post/draft');
                 } catch (Exception $ex) {
                     var_dump($ex->getMessage()); die();
                 }
             } else {
                 $this->SetNotice('danger', 'Пожалуйста, корректно заполните все поля…');
-                //var_dump(e($validator->error())); die();
                 $this->RegisterJs('tinymce/tinymce.min.js');
                 $this->template->content = Fuel\Core\View::forge('user/layout/post/form', array('errors' => e($validator->error())));
             }

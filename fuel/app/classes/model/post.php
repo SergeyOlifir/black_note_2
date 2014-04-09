@@ -11,7 +11,7 @@ class Model_Post extends \Orm\Model
                 ),
                 'object' => array(
                     'data_type' => 'int',
-                    'ladel' => 'type',
+                    'ladel' => 'object',
                     'validation' => array('required')
                 ),
 		'organisation_id' => array(
@@ -76,6 +76,16 @@ class Model_Post extends \Orm\Model
         public static $post_types = array(
             '0' => 'Жалоба',
             '1' => 'Благодарность',
+        );
+        
+        public static $post_objects = array(
+            '0' => 'Продавцы',
+            '1' => 'Исполнители',
+            '3' => 'Работодатели',
+            '4' => 'Работники',
+            '5' => 'Партнеры',
+            '6' => 'Заказчики',
+            '7' => 'Покупатели',
         );
         
         public static $post_status = array(
