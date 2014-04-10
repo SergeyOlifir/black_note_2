@@ -299,7 +299,7 @@ h1.logo {
 .cover-container {
     margin: 0 auto;
     max-width: 950px;
-    padding: 50px 10px;
+    padding: 10px 10px;
 }
 
 h1 + .lead, h1 + .lead p {
@@ -387,19 +387,20 @@ textarea.form-control {
 
 
 .footer {
-    border-top: 1px solid #000;
+    border-top: 2px solid #000;
     border-bottom: 1px solid #000;
 }
 
 .counter {
     background: url('../img/bg_counter.png') no-repeat;
-    font-size: 32px;
-    padding: 0px 5px 5px;
+    font-size: 30px;
+    padding: 0px 5px 0px;
     text-shadow: 0 2px 0 #000;
     display: inline-block;
-    width: 32px;
+    width: 29px;
     color: #fff;
     background-repeat: no-repeat;
+    box-shadow: 0px 4px 0px rgba(0,0,0,0.5);
 }
 
 #text-merchant {
@@ -407,8 +408,10 @@ textarea.form-control {
     line-height: 3;
     display: inline-block;
     text-align: center;
-    vertical-align: super;
+    vertical-align: initial;
     font-size: 30px;
+    text-shadow: 0 3px 0 #000;
+    padding-left: 10px;
 }
 
 #comma {
@@ -420,7 +423,6 @@ textarea.form-control {
 
 #count-merchant {
     text-align: center;
-    padding-top: 15px;
 }
 .abaut h2 {
     font-size: 24px;
