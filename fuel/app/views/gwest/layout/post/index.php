@@ -5,17 +5,17 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <select class="form-control location" val="<?= isset($post['organisation']) ? $post['organisation']->country_id : ''; ?>"  name="country_id" param="" action="<?= \Fuel\Core\Uri::create('/location/country/'); ?>" ></select>
+                        <select class="form-control location" val="<?= isset($input['country_id']) ? $input['country_id'] : ''; ?>"  name="country_id" param="" action="<?= \Fuel\Core\Uri::create('/location/country/'); ?>" ></select>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <select class="form-control location" val="<?= isset($post['organisation']) ? $post['organisation']->region_id : ''; ?>" name="region_id" param="" action="<?= \Fuel\Core\Uri::create('/location/region/'); ?>" ></select>
+                        <select class="form-control location" val="<?= isset($input['region_id']) ? $input['region_id'] : ''; ?>" name="region_id" param="" action="<?= \Fuel\Core\Uri::create('/location/region/'); ?>" ></select>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <select class="form-control location" val="<?= isset($post['organisation']) ? $post['organisation']->sity_id : ''; ?>" name="sity_id" param="" action="<?= \Fuel\Core\Uri::create('/location/sity/'); ?>"></select>
+                        <select class="form-control location" val="<?= isset($input['sity_id']) ? $input['sity_id'] : ''; ?>" name="sity_id" param="" action="<?= \Fuel\Core\Uri::create('/location/sity/'); ?>"></select>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-md-10">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Введите ключевые слова в поиск..."/>
+                        <input type="text" name="query" value="<?= isset($input['query']) ? $input['query'] : ''; ?>" class="form-control" placeholder="Введите ключевые слова в поиск..."/>
                         <p class="help-block">Пример: Название товара или услуги плохого качества…</p>
                     </div>
                 </div>
@@ -38,8 +38,8 @@
     </fieldset>
 <?= Fuel\Core\Form::close(); ?>
 <ul class="nav nav-tabs nav-justified">
-    <li><a href="/gwest/posts/index/0">Продавцы</a></li>
-    <li><a href="/gwest/posts/index/1">Исполнители</a></li>
+    <li><a href="/gwest/posts/index/1">Продавцы</a></li>
+    <li><a href="/gwest/posts/index/2">Исполнители</a></li>
     <li><a href="/gwest/posts/index/3">Работодатели</a></li>
     <li><a href="/gwest/posts/index/4">Работники</a></li>
     <li><a href="/gwest/posts/index/5">Партнеры</a></li>
@@ -75,7 +75,8 @@
                 </div>
             </div>
         <? endforeach; ?>
-        <?= Pagination::instance('draftspafination')->render(); ?>
+        
+        <?= (Fuel\Core\Pagination::instance('draftspafination')) ? Pagination::instance('draftspafination')->render() : ''; ?>
     <? else: ?>
         <h3>Статей пока нету( Но их можно добавить</h3>
     <? endif;?>
