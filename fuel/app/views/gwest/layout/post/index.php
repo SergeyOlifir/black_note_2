@@ -1,3 +1,52 @@
+<?= Form::open(array('method' => 'post', 'role' => 'form', 'class' => 'add-post')); ?>
+    <fieldset>
+        <div class="form-group">
+            <label>Месторасположение</label>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <select class="form-control location" val="<?= isset($post['organisation']) ? $post['organisation']->country_id : ''; ?>"  name="country_id" param="" action="<?= \Fuel\Core\Uri::create('/location/country/'); ?>" ></select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <select class="form-control location" val="<?= isset($post['organisation']) ? $post['organisation']->region_id : ''; ?>" name="region_id" param="" action="<?= \Fuel\Core\Uri::create('/location/region/'); ?>" ></select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <select class="form-control location" val="<?= isset($post['organisation']) ? $post['organisation']->sity_id : ''; ?>" name="sity_id" param="" action="<?= \Fuel\Core\Uri::create('/location/sity/'); ?>"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Введите ключевые слова в поиск..."/>
+                        <p class="help-block">Пример: Название товара или услуги плохого качества…</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <button class="btn btn-default btn-block" type="submit">Поиск</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+<?= Fuel\Core\Form::close(); ?>
+<ul class="nav nav-tabs nav-justified">
+    <li><a href="/gwest/posts/index/0">Продавцы</a></li>
+    <li><a href="/gwest/posts/index/1">Исполнители</a></li>
+    <li><a href="/gwest/posts/index/3">Работодатели</a></li>
+    <li><a href="/gwest/posts/index/4">Работники</a></li>
+    <li><a href="/gwest/posts/index/5">Партнеры</a></li>
+    <li><a href="/gwest/posts/index/6">Заказчики</a></li>
+    <li><a href="/gwest/posts/index/7">Покупатели</a></li>
+    <li><a href="/gwest/posts/">Bce</a></li>
+</ul>
 <div class="well">
     <? if(count($posts) > 0): ?>
         <? foreach($posts as $post): ?>

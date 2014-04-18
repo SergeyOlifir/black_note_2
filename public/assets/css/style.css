@@ -8,7 +8,7 @@ grid-block, .main, .post, .comments li, .comment-form {
 
 body {
     __background: #eee;
-    color: #666666; 
+    color: #c9c9c9;
     __color: #fff;
     __text-align: center;
     text-shadow: 0 1px 3px rgba(0,0,0,.5);
@@ -458,4 +458,8 @@ textarea.form-control {
 .all_zakon_from_weak {
     color: #fff;
     padding-top: 10px;
+}
+
+.help-block {
+    color: #888;
 }
