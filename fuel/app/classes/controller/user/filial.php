@@ -25,8 +25,10 @@ class Controller_User_Filial extends \Fuel\Core\Controller_Rest {
             $fields['user_id'] = self::GetLogedInUser()->id;
             $fields['logo'] = 'dd';
             try {
-                Model_Filial::forge($fields)->save();
-                return $this->response(array('status' => 'success')); 
+                $new_filial = Model_Filial::forge($fields);
+                $new_filial->save();
+                $new_id = $new_filial->id;
+                return $this->response(array('status' => 'success', 'id' => $new_id)); 
             } catch (Exception $ex) {
 
             }

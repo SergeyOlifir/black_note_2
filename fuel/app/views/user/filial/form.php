@@ -13,17 +13,17 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <select class="form-control location" name="country_id" id="country" param="" action="<?= \Fuel\Core\Uri::create('/location/country/'); ?>" ></select>
+                                        <select class="form-control location nosync" name="country_id" id="country" param="" action="<?= \Fuel\Core\Uri::create('/location/country/'); ?>" ></select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <select class="form-control location" name="region_id" id="region" param="" action="<?= \Fuel\Core\Uri::create('/location/region/'); ?>"></select>
+                                        <select class="form-control location nosync" name="region_id" id="region" param="" action="<?= \Fuel\Core\Uri::create('/location/region/'); ?>"></select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <select class="form-control location" name="sity_id" param="" action="<?= \Fuel\Core\Uri::create('/location/sity/'); ?>" ></select>
+                                        <select class="form-control location nosync" name="sity_id" param="" action="<?= \Fuel\Core\Uri::create('/location/sity/'); ?>" ></select>
                                     </div>
                                 </div>
                             </div>

@@ -45,7 +45,7 @@
 
                         <div class="form-group">
                             <label>Название организации</label>
-                            <input name="title" class="form-control" type="text" value="" placeholder="Адресс организации"/>
+                            <input name="title" class="form-control" type="text" value="" placeholder="Название организации"/>
                             <p class="help-block">Название может включать символы кириллицы или латиницы, не больше 150 символов…</p>
                         </div>
 

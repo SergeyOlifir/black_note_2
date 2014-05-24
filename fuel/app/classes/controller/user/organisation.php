@@ -26,8 +26,10 @@ class Controller_User_Organisation extends \Fuel\Core\Controller_Rest {
             $fields['logo'] = '/files/avatars/no_foto.jpg';
             $fields['raiting'] = 0;
             try {
-                Model_Organisation::forge($fields)->save();
-                return $this->response(array('status' => 'success')); 
+                $new_org = Model_Organisation::forge($fields);
+                $new_org->save();
+                $new_id = $new_org->id;
+                return $this->response(array('status' => 'success', 'id' => $new_id)); 
             } catch (Exception $ex) {
                 
             }

@@ -23,7 +23,7 @@ var SearchOrganisationObject = {
         
     },
     
-    SendToOrganisation: function() {
+    SendToOrganisation: function(selected) {
         var self = this;
         $.ajax('/user/organisation/search.json', {
             type: 'POST',
@@ -33,15 +33,16 @@ var SearchOrganisationObject = {
             },
             
             success: function(e) {
-                //console.log(e);
+                console.log(e);
                 var oldValue = $('select[name="organisation_id"]').val();
+                console.log(oldValue);
                 $('select[name="organisation_id"]').html('');
                 for(var i in e) {
                     $('select[name="organisation_id"]').append('<option value="' + e[i].id + '">' + e[i].title + '</option>');
                 }
                 var hasOldValue = $('select[name="organisation_id"]').find('option[value="' + oldValue + '"]').length > 0;
                 if (!hasOldValue) {
-                    $('select[name="organisation_id"]').val(null).trigger('change');
+                    $('select[name="organisation_id"]').val(selected || null).trigger('change');
                 } else {
                     $('select[name="organisation_id"]').val(oldValue);
                 }
@@ -65,7 +66,7 @@ var SearchFilialObject = {
         }
     },
     
-    SendToFilial: function() {
+    SendToFilial: function(selected) {
         var self = this;
         $.ajax('/user/filial/search.json', {
             type: 'POST',
@@ -76,12 +77,18 @@ var SearchFilialObject = {
             
             success: function(e) {
                 //console.log(e);
-                
+                var oldValue = $('select[name="filial_id"]').val();
                 $('select[name="filial_id"]').html('');
                 for(var i in e) {
                     $('select[name="filial_id"]').append('<option value="' + e[i].id + '">' + e[i].title + '</option>');
                 }
-                $('select[name="filial_id"]').val(null).trigger('change');
+
+                var hasOldValue = $('select[name="filial_id"]').find('option[value="' + oldValue + '"]').length > 0;
+                if (!hasOldValue) {
+                    $('select[name="filial_id"]').val(selected || null).trigger('change');
+                } else {
+                    $('select[name="filial_id"]').val(oldValue);
+                }
             }
         })
     }
@@ -365,17 +372,23 @@ $(document).ready(function(){
     
     var onLocationControlChange = function () {
         //debugger;
+        var sync = !$(this).hasClass('nosync');
         var currentName = $(this).attr('name');
         var selector = 'select.location[name="' + currentName + '"]';
         var currentValue = $(this).val();
-        SearchOrganisationObject.Set(currentName, currentValue);
-        SearchFilialObject.Set(currentName, currentValue);
-        $(selector).attr('val', currentValue).val(currentValue);
+        
         if (locationOrder.indexOf(currentName) < locationOrder.length) {
             var relatedName = locationOrder[locationOrder.indexOf(currentName) + 1];
-            var relatedSelector = 'select.location[name="' + relatedName + '"]';
+            var relatedSelector = 'select.location'+ (sync ? '' : '.nosync') +'[name="' + relatedName + '"]';
             $(relatedSelector).attr('param', currentValue);
             $(relatedSelector).LocationControl();
+        }
+        if (sync) {
+            SearchOrganisationObject.Set(currentName, currentValue);
+        }
+        SearchFilialObject.Set(currentName, currentValue);
+        if (sync) {
+            $(selector).attr('val', currentValue).val(currentValue);
         }
     }
     
@@ -422,6 +435,7 @@ $(document).ready(function(){
                console.log(e);
            },
            success: function(e) {
+               var newID = e.id;
                if(e.status === 'success') {
                   $('form.addOrganisationForm .has-error').removeClass('has-error'); 
                } else {
@@ -429,7 +443,7 @@ $(document).ready(function(){
                        $('form.addOrganisationForm [name="' + i + '"]').parent().addClass('has-error');
                    }
                }
-               SearchOrganisationObject.SendToOrganisation();
+               SearchOrganisationObject.SendToOrganisation(newID);
                $('#organisationModal').modal('hide');
            }
        });
@@ -453,6 +467,7 @@ $(document).ready(function(){
                console.log(e);
            },
            success: function(e) {
+               var newID = e.id;
                if(e.status === 'success') {
                   $('form.addOrganisationForm .has-error').removeClass('has-error'); 
                } else {
@@ -460,6 +475,8 @@ $(document).ready(function(){
                        $('form.addOrganisationForm [name="' + i + '"]').parent().addClass('has-error');
                    }
                }
+               SearchFilialObject.SendToFilial(newID)
+               $('#filialModal').modal('hide');
            }
        });
        
